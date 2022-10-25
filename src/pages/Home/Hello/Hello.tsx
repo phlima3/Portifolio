@@ -3,12 +3,12 @@ import { Box, Flex, Text, useMediaQuery } from "@chakra-ui/react";
 export const Hello = () => {
   const [isMobile] = useMediaQuery("(max-width: 767px)");
   return (
-    <Flex mt={isMobile ? "150px" : "150px"} direction="column">
+    <Flex mt={isMobile ? "100px" : ""} direction="column" maxW="600px">
       {isMobile ? (
         <>
           <Text
             textAlign="center"
-            fontWeight={800}
+            fontWeight={700}
             fontSize={40}
             color="text.white"
             maxH="40px"
@@ -17,7 +17,7 @@ export const Hello = () => {
           </Text>
           <Text
             textAlign="center"
-            fontWeight={800}
+            fontWeight={700}
             fontSize={40}
             color="background.secondary.500"
           >

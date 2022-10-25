@@ -12,7 +12,7 @@ export const ContainerMain = ({ children, ...props }: ContainerMainProps) => {
 
   return (
     <Flex
-      h={"100vh"}
+      minH="100vh"
       bg="background.primary.500"
       w="100%"
       direction="column"
