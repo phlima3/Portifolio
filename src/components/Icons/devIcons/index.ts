@@ -27,3 +27,8 @@ export * from "./storybook";
 export * from "./tailwind";
 export * from "./typescript";
 export * from "./vue";
+export * from "./material";
+export * from "./mongodb";
+export * from "./amazon";
+export * from "./ubuntu";
+export * from "./java";

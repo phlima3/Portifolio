@@ -31,7 +31,7 @@ export const Hello = () => {
             fontSize={14}
             color="text.primary"
           >
-            Sou desenvolvedor Front-end focado em plataforma web, 100%
+            Sou desenvolvedor Fullstack focado em plataforma web, 100%
             atualizado nas tecnologias da atualidade e evoluindo igual a um
             foguete!
           </Text>
@@ -60,7 +60,7 @@ export const Hello = () => {
             fontSize={18}
             color="text.secondary"
           >
-            Desenvolvedor front-end focado em tirar suas ideias do papel para o
+            Desenvolvedor Fullstack focado em tirar suas ideias do papel para o
             mercado...
           </Text>
         </Box>
