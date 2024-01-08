@@ -11,7 +11,7 @@ import { Header } from "../../components/Header";
 import Mouse from "../../components/Icons/Mouse";
 import LogoReact from "../../components/Icons/logoReact";
 import { Hello } from "./Hello/Hello";
-import Eu from "../../components/Icons/Eu";
+import { Eu } from "../../components/Icons/Eu";
 import "./home.css";
 import { GithubIcon } from "../../components/Icons/Github";
 import { Email } from "../../components/Icons/Email";
@@ -50,7 +50,12 @@ export const Home = () => {
     {
       date: "2023",
       description:
-        "Mesmo após ser demitido no começo do ano, não desisti. Continuei estudando e me aprimorando. Então, outro professor do curso técnico me convidou para um projeto freelance, e desde então atuo como freelancer para pequenas empresas locais. Além disso, migrei de Front-end para Fullstack Developer, onde estou até hoje.",
+        "Mesmo após ser demitido no começo do ano, não desisti. Continuei estudando e me aprimorando. Então, outro professor do curso técnico me convidou para um projeto freelance, e foi nele em que me descobri no desenvolvimento mobile. Desde então, venho me dedicando a essa área e me aprimorando cada vez mais.",
+    },
+    {
+      date: "2024",
+      description:
+        "Hoje, sou desenvolvedor fullstack, com foco em mobile. Tenho como objetivo me tornar um desenvolvedor sênior e, futuramente, me tornar um empreendedor.",
     },
   ];
 
@@ -101,9 +106,7 @@ export const Home = () => {
               <Text fontWeight={700} color="text.white" fontSize={20}>
                 Pedro H. dos Santos Lima
               </Text>
-              <Text fontWeight={500} color="text.secondary" fontSize={14}>
-                Téc. Desenvolvimento de sistemas
-              </Text>
+
               <Text fontWeight={500} color="text.secondary" fontSize={14}>
                 Fullstack Developer
               </Text>
@@ -131,7 +134,7 @@ export const Home = () => {
                 <Linkedin fill="#FB3640" />
               </Link>
             </Flex>
-            <Flex direction="column" gap={4} my="80px">
+            <Flex direction="column" gap={4} my="80px" id="sobre">
               {experience.map((item) => (
                 <MyDates
                   key={item.date}
@@ -153,7 +156,13 @@ export const Home = () => {
             />
           </Flex>
 
-          <Flex w="100%" justify="center" align="center" direction="column">
+          <Flex
+            w="100%"
+            justify="center"
+            align="center"
+            direction="column"
+            id="skills"
+          >
             <Text fontWeight={700} color="text.white" fontSize={20}>
               Minhas Skills
             </Text>

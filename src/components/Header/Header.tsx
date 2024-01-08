@@ -5,7 +5,15 @@ import Logo48 from "../Icons/Logo48";
 export const Header = () => {
   const [isMobile] = useMediaQuery("(max-width: 767px)");
 
-  //
+  const handleClickScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    }
+  };
 
   return (
     <Flex
@@ -18,7 +26,7 @@ export const Header = () => {
 
       {!isMobile && (
         <Flex gap={6}>
-          <Link to="#sobre">
+          <div onClick={() => setTimeout(() => handleClickScroll("sobre"), 0)}>
             <Text
               color="text.secondary"
               _hover={{
@@ -41,8 +49,8 @@ export const Header = () => {
             >
               Sobre mim
             </Text>
-          </Link>
-          <Link to="#skills">
+          </div>
+          <div onClick={() => setTimeout(() => handleClickScroll("skills"), 0)}>
             <Text
               color="text.secondary"
               _hover={{
@@ -65,8 +73,10 @@ export const Header = () => {
             >
               Minhas skills
             </Text>
-          </Link>
-          <Link to="#projetos">
+          </div>
+          <div
+            onClick={() => setTimeout(() => handleClickScroll("projetos"), 0)}
+          >
             <Text
               color="text.secondary"
               _hover={{
@@ -89,8 +99,8 @@ export const Header = () => {
             >
               Projetos
             </Text>
-          </Link>
-          <Link to="#lets-go-work">
+          </div>
+          <div onClick={() => setTimeout(() => handleClickScroll("form"), 0)}>
             <Text
               color="text.secondary"
               _hover={{
@@ -113,7 +123,7 @@ export const Header = () => {
             >
               Vamos Trabalhar juntos
             </Text>
-          </Link>
+          </div>
         </Flex>
       )}
     </Flex>

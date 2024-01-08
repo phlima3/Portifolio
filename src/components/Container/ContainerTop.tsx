@@ -44,15 +44,34 @@ export const ContainerTop = () => {
         duration: 4000,
         isClosable: true,
         render: () => (
-          <Flex
-            color="#FB3640"
-            w="100%"
-            display={isMobile ? "none" : "flex"}
-            alignItems="center"
-            justifyContent="center"
-          >
-            Experimente clicar na logo ;)
-          </Flex>
+          <>
+            <Flex
+              color="#FB3640"
+              w="100%"
+              display={isMobile ? "none" : "flex"}
+              alignItems="center"
+              justifyContent="center"
+            >
+              Experimente clicar na logo!
+            </Flex>
+            <Flex
+              color="#FB3640"
+              w="100%"
+              display={isMobile ? "none" : "flex"}
+              alignItems="center"
+              justifyContent="center"
+              textAlign={isMobile ? "center" : "left"}
+            >
+              <p
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                Ou se quiser, pode fazer o scroll para baixo e conhecer um pouco
+                mais sobre mim!
+              </p>
+            </Flex>
+          </>
         ),
       });
     }

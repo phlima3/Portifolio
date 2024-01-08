@@ -31,9 +31,8 @@ export const Hello = () => {
             fontSize={14}
             color="text.primary"
           >
-            Sou desenvolvedor Fullstack focado em plataforma web, 100%
-            atualizado nas tecnologias da atualidade e evoluindo igual a um
-            foguete!
+            Sou desenvolvedor mobile, 100% atualizado nas tecnologias da
+            atualidade e evoluindo igual a um foguete!
           </Text>
         </>
       ) : (
@@ -60,7 +59,7 @@ export const Hello = () => {
             fontSize={18}
             color="text.secondary"
           >
-            Desenvolvedor Fullstack focado em tirar suas ideias do papel para o
+            Desenvolvedor mobile focado em tirar suas ideias do papel para o
             mercado...
           </Text>
         </Box>

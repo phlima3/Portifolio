@@ -41,8 +41,8 @@ export const SkillsDevops = () => {
 
   return (
     <>
-      <Text fontWeight={600} color="text.white" fontSize={20}>
-        DevOps
+      <Text marginRight={6} fontWeight={600} color="text.white" fontSize={20}>
+        Outros
       </Text>
       <Skills skills={devops} skillType="Dev ops" />
     </>
