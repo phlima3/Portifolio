@@ -11,7 +11,9 @@ export function useFollowPointer(ref: RefObject<HTMLElement>) {
 
     if (!isMobile) {
       const handlePointerMove = ({ clientX, clientY }: MouseEvent) => {
-        const element = ref.current!;
+        const element = ref.current;
+
+        if (!element) return;
 
         const x = clientX - element.offsetLeft - element.offsetWidth / 2;
         const y = clientY - element.offsetTop - element.offsetHeight / 2;

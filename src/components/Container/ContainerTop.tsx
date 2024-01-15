@@ -1,9 +1,19 @@
-import { Flex, Image, useMediaQuery, Center, useToast } from "@chakra-ui/react";
+import {
+  Flex,
+  Image,
+  useMediaQuery,
+  Center,
+  useToast,
+  Button,
+  IconButton,
+} from "@chakra-ui/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import "../../pages/Home/home.css";
 import logo from "../../assets/logo.png";
 import { motion, useAnimation } from "framer-motion";
 import { useFollowPointer } from "../../hooks/use-follow-pointer";
+
+import * as Fa from "react-icons/fa";
 
 export const ContainerTop = () => {
   const [isMobile] = useMediaQuery("(max-width: 1080px)");
@@ -12,6 +22,7 @@ export const ContainerTop = () => {
   const ref = useRef(null);
   const { x, y } = useFollowPointer(ref);
   const [isRotating, setIsRotating] = useState(false);
+  const [toastVisible, setToastVisible] = useState(true);
 
   const rotatingDiv = useMemo(
     () => (
@@ -37,11 +48,11 @@ export const ContainerTop = () => {
   );
 
   useEffect(() => {
-    const isMobileNotChakra = window.innerWidth < 1080;
+    const isMobileDevice = window.innerWidth < 1080;
 
-    if (!isMobileNotChakra) {
+    if (!isMobileDevice && toastVisible) {
       toast({
-        duration: 4000,
+        duration: 3000,
         isClosable: true,
         render: () => (
           <>
@@ -54,28 +65,27 @@ export const ContainerTop = () => {
             >
               Experimente clicar na logo!
             </Flex>
-            <Flex
-              color="#FB3640"
-              w="100%"
-              display={isMobile ? "none" : "flex"}
-              alignItems="center"
-              justifyContent="center"
-              textAlign={isMobile ? "center" : "left"}
-            >
-              <p
-                style={{
-                  textAlign: "center",
-                }}
-              >
-                Ou se quiser, pode fazer o scroll para baixo e conhecer um pouco
-                mais sobre mim!
-              </p>
-            </Flex>
           </>
         ),
       });
     }
-  }, [isMobile]);
+  }, [isMobile, toast, toastVisible]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setToastVisible(false);
+      } else {
+        setToastVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (isRotating) {
@@ -86,6 +96,10 @@ export const ContainerTop = () => {
     }
   }, [controls, isRotating]);
 
+  const handleScrollDown = () => {
+    window.scrollBy({ top: 680, behavior: "smooth" }); // ajuste o valor de top conforme necessário
+  };
+
   return (
     <>
       {isMobile ? (
@@ -95,6 +109,19 @@ export const ContainerTop = () => {
       ) : (
         <Center w="100%" h="100vh" bg="background.primary.500" display="flex">
           {rotatingDiv}
+          {toastVisible && (
+            <IconButton
+              icon={<Fa.FaArrowDown />}
+              onClick={handleScrollDown}
+              colorScheme="red"
+              aria-label="Arrow Down"
+              size="lg"
+              color="text.white"
+              position="fixed"
+              bottom="20px"
+              right="20px"
+            />
+          )}
         </Center>
       )}
     </>
